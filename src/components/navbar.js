@@ -34,7 +34,7 @@ export default function Nav() {
                     {currentUser ?  
                         <Fragment>
                             <li className="nav-item">
-                                <NavLink className="nav-link"  title='balance' to="/balance">Balance</NavLink>
+                                <NavLink className="nav-link"   data-toggle="tooltip" title='balance' to="/balance">Balance</NavLink>
                             </li>
                             <li className="nav-item aligment" >
                                     <NavLink className="nav-link" data-toggle="tooltip" data-placement="bottom" title="Here to make deposits" to="/deposit">Deposit</NavLink>

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfrontend=self.webpackChunkfrontend||[]).push([[830],{5830:function(e,n,t){t.r(n),t.d(n,{default:function(){return c}});var r=t(2791),a=t(4171),s=t(184);function c(){return(0,s.jsx)(r.Fragment,{children:(0,s.jsx)(a.Z,{bgcolor:"black",txtcolor:"white",header:"Landing Page",title:"Welcome to your Bank",text:"You can use this Bank",body:(0,s.jsx)(r.Fragment,{children:(0,s.jsx)("img",{src:"bank.png",className:"img-fluid",alt:"Responsive",fill:"red"})})})})}}}]);
+//# sourceMappingURL=830.029f3a6f.chunk.js.map

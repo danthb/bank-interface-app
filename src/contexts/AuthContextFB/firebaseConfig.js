@@ -1,7 +1,6 @@
 import {initializeApp} from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth"
 
-
 // Initialize Firebase
 initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -11,7 +10,6 @@ initializeApp({
     messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
     appId: process.env.FIREBASE_APP_ID,
 });
-
 
 const auth = getAuth();
 const firebase = {

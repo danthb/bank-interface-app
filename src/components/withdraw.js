@@ -27,7 +27,6 @@ export default function Withdraw() {
       setBalance(user[0].balance)
     })
     .then(async () => {
-      console.log('data from deposit', data)
       if (balance > 0 && balance >= Number(data.amount) && Number(data.amount) >= 0) {
         let newbalance = Number(balance) - Number(data.amount)
         setBalance(newbalance)
@@ -35,7 +34,7 @@ export default function Withdraw() {
         await accountAPI.updated(user[0]._id, -data.amount)
         alert(`Transaction done, your balance is ${Number(balance) - Number(data.amount) }`)
       } else {
-        if (loaded) {
+        if (loaded && balance < Number(data.amount)) {
           alert("You don't have enough money")
         }
           return false

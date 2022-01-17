@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import {AuthContextFB}  from '../contexts/AuthContextFB';
 import './navbar.css'
 
+
 export default function Nav() {
     const { authFB, logoutFB } = useContext(AuthContextFB);
     const [currentUser, setCurrentUser] = useState(null)
@@ -26,14 +27,14 @@ export default function Nav() {
 
             <div className="container-fluid d-flex flex-row bd-highlight mb"  >
                 <NavLink className="nav-link active" aria-current="page" to="/">BadBank</NavLink>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="navbar-collapse" id="navbarSupportedContent">
+                <div className="navbar-collapse " id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0  aligment" style={{ alignItems:'end'}}>
                     {currentUser ?  
                         <Fragment>
-                            <li className="nav-item">
+                            <li className="nav-item aligment">
                                 <NavLink className="nav-link"   data-toggle="tooltip" title='balance' to="/balance">Balance</NavLink>
                             </li>
                             <li className="nav-item aligment" >
@@ -43,7 +44,7 @@ export default function Nav() {
                                 <NavLink className="nav-link" data-toggle="tooltip" data-placement="bottom" title="Here to make withdraws" to="/withdraw">Withdraw</NavLink>
                             </li>
                             <li className="nav-item aligment"  data-toggle="tooltip" data-placement="bottom" title="Transaction Information of this Bank">
-                                <NavLink className="nav-link" to="/alldata">All Data</NavLink>
+                                <NavLink className="nav-link" to="/profile">Profile</NavLink>
                             </li>
                         </Fragment>
                         : <Fragment> </Fragment>}

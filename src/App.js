@@ -37,7 +37,7 @@ export default function App() {
                   <Route exact path='/deposit' component={Deposit} />
                   <Route exact path='/withdraw' component={Withdraw} />
                   <Route exat path='/balance' component={Balance} />
-                  <Route path='/alldata' component={AllData} />
+                  <Route path='/profile' component={AllData} />
                   {/* <Route path='*' component={NotFound} /> */}
                 </div>
               </UserContext.Provider>

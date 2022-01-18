@@ -27,7 +27,7 @@ export default function AllData() {
     
     useEffect(() => {
         handle();
-    }, [])
+    }, [authFB])
 
     return (
         <Fragment>

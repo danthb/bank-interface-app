@@ -25,15 +25,11 @@ const handle = (data) => {
     .then((dataUsers) => {
       user = dataUsers.filter(user => user.firebaseId === authFB.uid)
       setBalance(user[0].balance)
-      console.log('balance', balance)
     })
     .then(async () => {
-      console.log('data from deposit', data)
       if (Number(data.amount) > 0) {
-        console.log('deposit', data.amount)
         let newbalance = Number(balance) + Number(data.amount)
         setBalance(newbalance)
-        console.log('newbalance', balance)
         await accountAPI.updated(user[0]._id, data.amount)
         alert(`Transaction done, your balance is ${Number(data.amount) + Number(balance)}`)
       } else {

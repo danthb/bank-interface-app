@@ -12,11 +12,9 @@ export default function Login() {
   
   useEffect(() => {
     setCurrentUser(authFB)
-    console.log('userChanged', authFB)
   }, [authFB])
   
   async function handle(data) {
-    console.log(data)
     await loginFB(data.email, data.password)
       .then(() => {
         if(authFB){

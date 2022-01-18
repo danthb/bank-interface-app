@@ -8,7 +8,6 @@ export default function CreateAccount() {
       try {
         const { status } = await accountAPI.createUser(newUser);
         if (status === 200) {
-          console.log('user created');
         }
       } catch (error) {
         console.log(error);

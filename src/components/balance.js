@@ -4,7 +4,7 @@ import {Card} from "../contexts/context";
 import { accountAPI } from "../services";
 
 export default function Balance() {
-  const[balance, setBalance] = useState(0);
+  const[balance, setBalance] = useState('');
   const { authFB } = useContext(AuthContextFB);
   
   const getAccount = async () => {

@@ -34,17 +34,17 @@ export default function Nav() {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0  aligment" style={{ alignItems:'end'}}>
                     {currentUser ?  
                         <Fragment>
-                            <li className="nav-item aligment">
+                            {/* <li className="nav-item aligment">
                                 <NavLink className="nav-link"   data-toggle="tooltip" title='balance' to="/balance">Balance</NavLink>
+                            </li> */}
+                            <li className="nav-item aligment"  data-toggle="tooltip" data-placement="bottom" title="Transaction Information of this Bank">
+                                <NavLink className="nav-link" to="/profile">Profile</NavLink>
                             </li>
                             <li className="nav-item aligment" >
                                     <NavLink className="nav-link" data-toggle="tooltip" data-placement="bottom" title="Here to make deposits" to="/deposit">Deposit</NavLink>
                             </li>
                             <li className="nav-item aligment" >
                                 <NavLink className="nav-link" data-toggle="tooltip" data-placement="bottom" title="Here to make withdraws" to="/withdraw">Withdraw</NavLink>
-                            </li>
-                            <li className="nav-item aligment"  data-toggle="tooltip" data-placement="bottom" title="Transaction Information of this Bank">
-                                <NavLink className="nav-link" to="/profile">Profile</NavLink>
                             </li>
                         </Fragment>
                         : <Fragment> </Fragment>}

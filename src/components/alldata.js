@@ -1,49 +1,61 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useState, Fragment,  useContext, useEffect } from "react";
 import { accountAPI } from "../services";
+import { AuthContextFB } from "../contexts/AuthContextFB";
 
 export default function AllData() {
-    const [data, setData] = useState([]);
+    const { authFB } = useContext(AuthContextFB);  
+    const[user, setUser] = useState('');
+    const getAccount = async () => {
+        try {
+          if (authFB) {
+            const response = await accountAPI.getUser(authFB.uid);
+            return response.data;
+          }
+          } catch (error) {
+              console.log(error);
+              return
+          }   
+      }
+    
+    const handle = () => {
+      let user;
+      getAccount().then(data => {
+        user = data.filter(user => user.firebaseId === authFB.uid)
+          setUser(user[0])
+      })
+    }
+    
     useEffect(() => {
-        const getAccounts = async () => {
-            try {
-                const response = await accountAPI.all();
-                console.log(response.data);
-                setData(response.data);
-            } catch (error) {
-                console.log(error);
-            }   
-        }
-        getAccounts();
-    }, [] );
+        handle();
+    }, [])
+
     return (
         <Fragment>
             <div className="card text-center">
                 
                 <div className="card-header">
-                    <h5>Bank's Data</h5>
+                    <h5>User profile</h5>
                 </div>
                 <div className="card-body">
                 <table className="table">
                     <thead>
                     <tr >
-                        <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">FireBase_Id</th>
+                        <th scope="col">Last transaction</th>
                         <th scope="col">Balance</th>
                     </tr>
                     </thead>
                     <tbody >
                     {
-                        data.map((item, key) => (
-                        <tr key={key}>
-                            <th scope="row">{key + 1}</th>
-                            <td>{item.name}</td>
-                            <td>{item.email}</td>
-                            <td>{item.firebaseId}</td>
-                            <td>{item.balance}</td>
+                        authFB &&
+                        <tr >
+                            <td>{user.name}</td>
+                            <td>{user.email}</td>
+                            <td>{user.updated_at}</td>
+                            <td>{user.balance}</td>
                         </tr>
-                        ))
+         
                     }
                     </tbody>
                 </table>

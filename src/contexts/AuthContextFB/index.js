@@ -13,10 +13,8 @@ export const AuthProviderFB = ({ children }) => {
             const userCredential = await firebase.login(email, password)
             const user = userCredential.user
             user.getIdToken().then(token => {
-              console.log('token', token)
               localStorage.setItem('token', token)  
             }) 
-          console.log(user)
           setAuthFB(user)
           
         } catch (error) {

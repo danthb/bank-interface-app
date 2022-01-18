@@ -23,7 +23,6 @@ export const AuthProviderFB = ({ children }) => {
     }
 
     const logoutFB = async () => {
-        console.log('logout')
         try {
           await firebase.logout()
           setAuthFB(null)

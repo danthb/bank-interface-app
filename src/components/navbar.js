@@ -12,7 +12,6 @@ export default function Nav() {
         if (authFB) {
             logoutFB().then(() => {
                 setCurrentUser(null)
-                console.log('logout')
             })
         } else {
             console.log('no user')

@@ -24,11 +24,11 @@ export default function App() {
   return (
       <Router>
        <Switch>
-       <AuthProviderFB>
+       <AuthProviderFB value>
         <Suspense fallback = {<div>loading...</div>}>
           <NavBar />
           <div>
-              <UserContext.Provider >
+              <UserContext.Provider value>
                 <div className="container" style={{ padding: "20px" }}>
                   <Route path='/' exact component={Home} /> 
                   <Route path='/createaccount' component={CreateAccount} />

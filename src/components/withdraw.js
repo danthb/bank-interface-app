@@ -23,15 +23,15 @@ export default function Withdraw() {
     let user;
   getAccount()
     .then((dataUsers) => {
-      user = dataUsers.filter(user => user.firebaseId === authFB.uid)
-      setBalance(user[0].balance)
+      user = dataUsers[0];
+      setBalance(user.balance)
     })
     .then(async () => {
       if (balance > 0 && balance >= Number(data.amount) && Number(data.amount) >= 0) {
         let newbalance = Number(balance) - Number(data.amount)
         setBalance(newbalance)
         setLoaded(true)
-        await accountAPI.updated(user[0]._id, -data.amount)
+        await accountAPI.updated(user._id, -data.amount)
         alert(`Transaction done, your balance is ${Number(balance) - Number(data.amount) }`)
       } else {
         if (loaded && balance < Number(data.amount)) {
@@ -42,7 +42,7 @@ export default function Withdraw() {
         return true
       })   
   }
-  handle();  
+/*   handle();   */
     return (
       <Fragment>
         <BankForm

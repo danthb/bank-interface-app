@@ -20,8 +20,8 @@ export default function AllData() {
     const handle = () => {
       let user;
       getAccount().then(data => {
-        user = data.filter(user => user.firebaseId === authFB.uid)
-          setUser(user[0])
+        user = data[0];
+          setUser(user)
       })
     }
     

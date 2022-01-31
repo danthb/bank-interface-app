@@ -24,7 +24,7 @@ export default function BankForm({bgcolor,bgheader,label,handle,hideAmount,succe
   const getBalance = async () => {
     try {
       if (authFB) {
-        const response = await accountAPI.all();
+        const response = await accountAPI.getUser(authFB.uid);
         setUserLogged(true)
         return response.data;
       }
@@ -40,8 +40,8 @@ export default function BankForm({bgcolor,bgheader,label,handle,hideAmount,succe
   useEffect(() => {
     if (!hideAmount) {
       getBalance().then(data => {
-        let user = data.filter(user => user.firebaseId === authFB.uid)
-        setBalance(user[0].balance)
+        let user = data[0];
+        setBalance(user.balance)
       })
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps

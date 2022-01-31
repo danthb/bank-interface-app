@@ -23,14 +23,14 @@ const handle = (data) => {
   let user;
   getAccount()
     .then((dataUsers) => {
-      user = dataUsers.filter(user => user.firebaseId === authFB.uid)
-      setBalance(user[0].balance)
+      user = dataUsers[0];
+      setBalance(user.balance)
     })
     .then(async () => {
-      if (Number(data.amount) > 0) {
+      if ( Number(data.amount) > 0) {
         let newbalance = Number(balance) + Number(data.amount)
         setBalance(newbalance)
-        await accountAPI.updated(user[0]._id, data.amount)
+        await accountAPI.updated(user._id, data.amount)
         alert(`Transaction done, your balance is ${Number(data.amount) + Number(balance)}`)
       } else {
         alert("You can't make operations with negative amounts")
@@ -39,7 +39,7 @@ const handle = (data) => {
       return true
   })
   }
-  handle();
+/*   handle(); */
     return (
       <BankForm
       bgcolor="success"

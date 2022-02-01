@@ -36,6 +36,7 @@ export default function Withdraw() {
       } else {
         if (loaded && balance < Number(data.amount)) {
           alert("You don't have enough money")
+          return false
         }
           return false
         }

@@ -31,7 +31,7 @@ const handle = (data) => {
         let newbalance = Number(balance) + Number(data.amount)
         setBalance(newbalance)
         await accountAPI.updated(user._id, data.amount)
-        alert(`Transaction done, your balance is ${Number(data.amount) + Number(balance)}`)
+        await alert(`Transaction done, your balance is ${Number(balance) + Number(data.amount) }`)
       } else {
         alert("You can't make operations with negative amounts")
         return false

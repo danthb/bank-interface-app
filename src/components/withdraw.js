@@ -43,7 +43,7 @@ export default function Withdraw() {
         return true
       })   
   }
-/*   handle();   */
+  handle();  
     return (
       <Fragment>
         <BankForm
